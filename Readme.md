@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Максим Андреев](https://up.htmlacademy.ru/javascript/17/user/637455).
-* Наставник: `Неизвестно`.
+* Наставник: [Саяжан Онласын] (https://vk.com/crepiks).
 
 ---
 
