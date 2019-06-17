@@ -1,3 +1,5 @@
+'use strict'
+
 var mapPins = document.querySelector('.map__pins');
 var typeOfBooking = ['palace', 'flat', 'house', 'bungalo'];
 var pinsArray = [];
@@ -49,5 +51,4 @@ for (var j = 0; j < pinsArray.length; j++) {
   pinImg.src = pinsArray[j].author.avatar;
   pinElement.alt = 'Заголовок объявления';
   mapPins.appendChild(pinElement);
-
 }
