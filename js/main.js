@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var mapPins = document.querySelector('.map__pins');
 var typeOfBooking = ['palace', 'flat', 'house', 'bungalo'];
