@@ -29,12 +29,9 @@ var getPin = function (n) {
 };
 
 
-for (var i = 1; i <= 8; i++) {
-  imagesArray.push(i);
-}
-
-for (i = 0; i < 8; i++) {
-  pinsArray.push(getPin(i));
+for (var i = 0; i < 8; i++) {
+ imagesArray.push(i + 1);
+ pinsArray.push(getPin(i));
 }
 
 document.querySelector('.map').classList.remove('map--faded');
