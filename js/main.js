@@ -7,14 +7,14 @@ var typeOfBooking = ['palace', 'flat', 'house', 'bungalo'];
 var pinsArray = [];
 var imagesArray = [];
 
-//random numbers for style
+//random numbers for style.css
 
 var randomNumber = function (min, max) {
   var random = Math.round(Math.random() * (max - min) + min);
   return random;
 };
 
-//main function creat array
+//main function creating array
 
 var getPin = function (n) {
   var singlePin = {
