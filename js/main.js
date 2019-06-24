@@ -4,7 +4,6 @@ var mapPins = document.querySelector('.map__pins');
 var typeOfBooking = ['palace', 'flat', 'house', 'bungalo'];
 var pinsArray = [];
 var imagesArray = [];
-var numberOfImages = 8;
 
 var randomNumber = function (min, max) {
   var random = Math.round(Math.random() * (max - min) + min);
@@ -30,7 +29,7 @@ var getPin = function (n) {
 };
 
 
-for (var i = 1; i <= numberOfImages; i++) {
+for (var i = 1; i <= 8; i++) {
   imagesArray.push(i);
 }
 
@@ -44,7 +43,8 @@ var pinTemplate = document.querySelector('#pin')
     .content
     .querySelector('button');
 
-for (var j = 0; j < pinsArray.length; j++) {
+function init(){
+for (var j = 0; j < imagesArray.length; j++) {
   var pinElement = pinTemplate.cloneNode(true);
   pinElement.style = 'left: ' + pinsArray[j].location.x + 'px; top: ' + pinsArray[j].location.y + 'px;';
   var pinImg = pinElement.querySelector('img');
@@ -52,3 +52,6 @@ for (var j = 0; j < pinsArray.length; j++) {
   pinElement.alt = 'Заголовок объявления';
   mapPins.appendChild(pinElement);
 }
+}
+
+window.onload = init()
