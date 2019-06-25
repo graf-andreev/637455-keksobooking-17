@@ -3,6 +3,7 @@
 //declare variables
 
 var mapPins = document.querySelector('.map__pins');
+var pinMain = document.querySelector('.map__pin--main');
 var typeOfBooking = ['palace', 'flat', 'house', 'bungalo'];
 var pinsArray = [];
 var imagesArray = [];
@@ -39,8 +40,6 @@ for (var i = 0; i < 8; i++) {
  pinsArray.push(getPin(i));
 }
 
-document.querySelector('.map').classList.remove('map--faded');
-
 //add pins to page
 
 var pinTemplate = document.querySelector('#pin')
@@ -58,4 +57,39 @@ for (var j = 0; j < imagesArray.length; j++) {
 }
 }
 
-window.onload = init()
+init()
+
+// click to active 
+
+var onClickActivate = function () {
+  var adForm = document.querySelector('.ad-form');
+  var mainMap = document.querySelector('.map');
+  adForm.classList.remove('ad-form--disabled');
+  mainMap.classList.remove('map--faded');
+}
+
+//get pseudo array, remove attributes
+
+var adFormInput = document.querySelectorAll('.ad-form input');
+  for (var i = 0; i < adFormInput.length; i++) {
+    adFormInput[i].removeAttribute('disabled');
+  }
+
+  var adFormSelect = document.querySelectorAll('.ad-form select');
+  for (i = 0; i < adFormSelect.length; i++) {
+    adFormSelect[i].removeAttribute('disabled');
+  }
+
+//set adress attr
+var setAttr = function(){
+var address = document.querySelector('#address');
+var pinMainTop = document.querySelector('.map__pin--main').style.top;
+var pinMainLeft = document.querySelector('.map__pin--main').style.left;
+address.setAttribute('value', pinMainLeft + ', ' + pinMainTop);
+};
+
+setAttr()
+
+pinMain.addEventListener('click', function(){
+  onClickActivate()
+  });
