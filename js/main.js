@@ -46,7 +46,7 @@ var pinTemplate = document.querySelector('#pin')
     .content
     .querySelector('button');
 
-function init(){
+function addPinsToPage(){
 for (var j = 0; j < imagesArray.length; j++) {
   var pinElement = pinTemplate.cloneNode(true);
   pinElement.style = 'left: ' + pinsArray[j].location.x + 'px; top: ' + pinsArray[j].location.y + 'px;';
@@ -56,8 +56,6 @@ for (var j = 0; j < imagesArray.length; j++) {
   mapPins.appendChild(pinElement);
 }
 }
-
-init()
 
 // click to active 
 
@@ -91,5 +89,6 @@ address.setAttribute('value', pinMainLeft + ', ' + pinMainTop);
 setAttr()
 
 pinMain.addEventListener('click', function(){
-  onClickActivate()
+  onClickActivate();
+  addPinsToPage()
   });
