@@ -59,7 +59,7 @@ for (var j = 0; j < imagesArray.length; j++) {
 
 // click to active 
 
-var onClickActivate = function () {
+var onMouseActivate = function () {
   var adForm = document.querySelector('.ad-form');
   var mainMap = document.querySelector('.map');
   adForm.classList.remove('ad-form--disabled');
@@ -136,7 +136,7 @@ checkOutTime.addEventListener('change', function (evt) {
 
 pinMain.addEventListener('mousedown', function(evt){
   evt.preventDefault();
-  onClickActivate();
+  onMouseActivate();
   addPinsToPage()
 
   var startCoords = {
