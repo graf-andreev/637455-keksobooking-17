@@ -175,8 +175,6 @@ pinMain.addEventListener('mousedown', function(evt){
     var pinMainTop = document.querySelector('.map__pin--main').style.top;
     var pinMainLeft = document.querySelector('.map__pin--main').style.left;
     address.setAttribute('value', pinMainLeft + ', ' + pinMainTop);
-
-
   };
 
   document.addEventListener('mousemove', onMouseMove);
