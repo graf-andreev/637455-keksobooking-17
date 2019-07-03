@@ -147,7 +147,7 @@ pinMain.addEventListener('mousedown', function(evt){
   document.addEventListener('mousemove', onMouseMove);
   document.addEventListener('mouseup', onMouseUp);
 
-  var onMouseMove = function (moveEvt) {
+  function onMouseMove (moveEvt) {
     moveEvt.preventDefault();
 
     var shift = {
@@ -164,5 +164,8 @@ pinMain.addEventListener('mousedown', function(evt){
     pinMain.style.left = (pinMain.offsetLeft - shift.x) + 'px';
   };
 
+  document.removeEventListener('mousemove', onMouseMove);
+  document.removeEventListener('mouseup', onMouseUp);
+    
   });
   
