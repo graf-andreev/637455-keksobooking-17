@@ -8,6 +8,16 @@ var typeOfBooking = ['palace', 'flat', 'house', 'bungalo'];
 var pinsArray = [];
 var imagesArray = [];
 
+var map = document.querySelector('.map');
+var widthMainPin= 65;
+var heightMainPin = 80;
+var Limits = {
+  limitTop: 130 - heightMainPin,
+  limitRight: map.offsetWidth - widthMainPin,
+  limitBottom: 630 - heightMainPin,
+  limitLeft: 0
+};
+
 //random numbers for style.css
 
 var randomNumber = function (min, max) {
@@ -77,16 +87,6 @@ var adFormInput = document.querySelectorAll('.ad-form input');
   for (i = 0; i < adFormSelect.length; i++) {
     adFormSelect[i].removeAttribute('disabled');
   }
-
-//set adress attr
-var setAttr = function(){
-var address = document.querySelector('#address');
-var pinMainTop = document.querySelector('.map__pin--main').style.top;
-var pinMainLeft = document.querySelector('.map__pin--main').style.left;
-address.setAttribute('value', pinMainLeft + ', ' + pinMainTop);
-};
-
-setAttr()
 
 // change placeholder value
 
@@ -160,12 +160,25 @@ pinMain.addEventListener('mousedown', function(evt){
       y: moveEvt.clientY
     };
 
-    pinMain.style.top = (pinMain.offsetTop - shift.y) + 'px';
-    pinMain.style.left = (pinMain.offsetLeft - shift.x) + 'px';
+    pinMain.style.left = Math.max(Math.min((pinMain.offsetLeft - shift.x), Limits.limitRight), Limits.limitLeft) + 'px';
+    pinMain.style.top = Math.max(Math.min((pinMain.offsetTop - shift.y), Limits.limitBottom), Limits.limitTop) + 'px';
+
   };
 
-  document.removeEventListener('mousemove', onMouseMove);
-  document.removeEventListener('mouseup', onMouseUp);
-    
-  });
-  
+  var onMouseUp = function (upEvt) {
+    upEvt.preventDefault();
+
+    document.removeEventListener('mousemove', onMouseMove);
+    document.removeEventListener('mouseup', onMouseUp);
+
+    var address = document.querySelector('#address');
+    var pinMainTop = document.querySelector('.map__pin--main').style.top;
+    var pinMainLeft = document.querySelector('.map__pin--main').style.left;
+    address.setAttribute('value', pinMainLeft + ', ' + pinMainTop);
+
+
+  };
+
+  document.addEventListener('mousemove', onMouseMove);
+  document.addEventListener('mouseup', onMouseUp);
+});
