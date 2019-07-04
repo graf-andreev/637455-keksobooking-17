@@ -14,7 +14,7 @@ var heightMainPin = 80;
 var Limits = {
   limitTop: 130 - heightMainPin,
   limitRight: map.offsetWidth - widthMainPin,
-  limitBottom: 630 - heightMainPin,
+  limitBottom: 700 - heightMainPin,
   limitLeft: 0
 };
 
