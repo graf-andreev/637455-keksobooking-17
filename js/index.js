@@ -1,14 +1,29 @@
 let arrMock = [];
 let mapElement = document.querySelector('.map');
-let pinActive = document.querySelector('.map__pin--main');
+let adForm = document.querySelector('.ad-form');
+let fields = document.querySelectorAll('fieldset');
+let selects = document.querySelectorAll('select');
+console.log(fields);
+console.log(selects);
+
+window.addEventListener('click', function (e){
+  if(e.target.alt === 'Метка объявления') {
+    mapElement.classList.remove('map--faded');
+    adForm.classList.remove('ad-form--disabled')
+    removeDisable(fields)
+    removeDisable(selects)
+  }
+})
 
 
-pinActive.addEventListener('click', activate);
-
-function activate(){
-  mapElement.classList.remove('map--faded')
-  console.log(123);
+function removeDisable(arr){
+  for (let i = 0; i < arr.length; i ++){
+    arr[i].removeAttribute('disabled');
+    arr[i].classList.add('1412rdsf')
+  }
 }
+
+
 const random = (min, max) => {
   let randomNumber = Math.floor(Math.random() * (max - min)) + min;
   return randomNumber;
