@@ -1,7 +1,14 @@
 let arrMock = [];
 let mapElement = document.querySelector('.map');
-mapElement.classList.remove('map--faded');
+let pinActive = document.querySelector('.map__pin--main');
 
+
+pinActive.addEventListener('click', activate);
+
+function activate(){
+  mapElement.classList.remove('map--faded')
+  console.log(123);
+}
 const random = (min, max) => {
   let randomNumber = Math.floor(Math.random() * (max - min)) + min;
   return randomNumber;
@@ -34,7 +41,6 @@ const generateMock = () => {
 }; generateMock();
 
 const renderMaps = (data) => {
-  console.log(data);
   for (let key in data) {
     let html = `<button type="button" class="map__pin" style="left:${data[key].location.x}px; top: ${data[key].location.y}px;"><img src=${data[key].author.avatar}
             width="40" height="40" draggable="false" alt="${data[key].offer.type}"></button>`;
